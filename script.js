@@ -260,71 +260,165 @@ console.log("start script");
 
 
 
-var cart = ["shoes", "shirt", "watches"];
-var prices = {
-    "shoes": 3000,
-    "shirt": 1999,
-    "watches": 3000
-};
+// var cart = ["shoes", "shirt", "watches"];
+// var prices = {
+//     "shoes": 3000,
+//     "shirt": 1999,
+//     "watches": 3000
+// };
 
-function createOrder(cb) {
-    let totalPrice = 0;
-    let noOfItem = cart.length;
+// function createOrder(cb) {
+//     let totalPrice = 0;
+//     let noOfItem = cart.length;
 
-    // Calculate total price based on items in the cart
-    for (let item of cart) {
-        totalPrice += prices[item] || 0; // Add price if item exists in prices
+//     // Calculate total price based on items in the cart
+//     for (let item of cart) {
+//         totalPrice += prices[item] || 0; // Add price if item exists in prices
+//     }
+
+//     // Simulate asynchronous behavior with setTimeout
+//     setTimeout(() => {
+//         console.log(`Order created: Total Price = $${totalPrice}, Number of Items = ${noOfItem}`);
+//         cb(totalPrice, noOfItem); // Call the callback with totalPrice and noOfItem
+//     }, 1000); // 1 second delay
+// }
+
+// function placeOrder(totalPrice, noOfItem, cb) {
+//     // Generate a unique order ID
+//     const orderId = Math.floor(Math.random() * 1000000); // Random order ID
+//     console.log(`Order ID: ${orderId}`);
+//     console.log(`Total items: ${noOfItem}`);
+//     console.log(`Total price: $${totalPrice}`);
+
+//     // Simulate going to the payment gateway
+//     setTimeout(() => {
+//         const paymentSuccess = orderPayment(orderId, totalPrice, noOfItem);
+//         cb(paymentSuccess); // Call the callback with payment success status
+//     }, 1000); // 1 second delay
+// }
+
+// function orderPayment(orderId, totalPrice, noOfItem) {
+//     // Simulate payment processing
+//     console.log(`Processing payment for order ${orderId}. Please wait!`);
+//     console.log(`Amount: $${totalPrice}`);
+
+//     // Simulate a successful payment
+//     const paymentSuccessful = true; // In a real scenario, this would depend on payment gateway response
+
+//     if (paymentSuccessful) {
+//         console.log(`Payment successful for order ID ${orderId}`);
+//         return true; // Indicate that the order was placed successfully
+//     } else {
+//         console.log(`Payment failed for order ID ${orderId}`);
+//         return false; // Indicate that the order was not placed
+//     }
+// }
+
+// function orderStatus(orderId, totalPrice, noOfItem) {
+//     console.log(`Order ${orderId} is successful`);
+//     console.log(`Total items: ${noOfItem}`);
+//     console.log(`Total amount paid: $${totalPrice}`);
+// }
+
+// // Main flow
+// createOrder((totalPrice, noOfItem) => {
+//     placeOrder(totalPrice, noOfItem, (paymentSuccess) => {
+//         if (paymentSuccess) {
+//             orderStatus(Math.floor(Math.random() * 1000000), totalPrice, noOfItem); // Generate a new order ID for status
+//         }
+//     });
+// });
+
+
+
+//monday - 7th july
+
+// console.log("start script");
+
+// let arr = [2,4,6,7,8];
+
+// const newArr = arr.map((x)=>x*2);
+
+// console.log(newArr);
+
+
+// //PROTOTYPES ___in js
+
+// let arr2 = [5,5,3,5,7,8];
+// function doubleData(x){
+//     return x*x;
+// }
+// Array.prototype.mapReplica = function(logic) {
+//     let outputArr = [];
+//     for(let i=0;i<this.length;i++){
+//         outputArr.push(logic(this[i]));
+//     }
+//     return outputArr;
+// }
+
+// const myProtoData = arr2.mapReplica(doubleData);
+
+// console.log(myProtoData);
+
+
+
+// /// filters in js 
+// console.log("filters in js");
+
+// const word= ["spray", "hello", "present", "world"];
+
+// const result = word.map((word)=> word.length>6);
+
+// console.log(result);
+
+// function check(x){
+//     if(x.length>6){
+//         return x;
+//     }
+//     return;
+// }
+
+// Array.prototype.checkLength = function(logic) {
+//     let outputArr = [];
+//     for(let i=0;i<this.length;i++){
+//         if(logic(this[i])){
+//             outputArr.push(this[i]);
+//         }
+//     }
+//     return outputArr;
+// }
+
+// const mapRep = word.mapReplica((word)=>word.length>6);
+
+// const ProtoResult = word.checkLength(check);
+// console.log(ProtoResult);
+// console.log(result);
+
+// REDUCE IN JS
+
+console.log("reduce in js");
+
+const array1 = [1,2,4,5,7,8];
+
+const intitialValue = 0;
+
+function arraySum(x){
+    let sum =0;
+    for(let i=0;i<x.length;i++){
+        sum+=x[i];
     }
-
-    // Simulate asynchronous behavior with setTimeout
-    setTimeout(() => {
-        console.log(`Order created: Total Price = $${totalPrice}, Number of Items = ${noOfItem}`);
-        cb(totalPrice, noOfItem); // Call the callback with totalPrice and noOfItem
-    }, 1000); // 1 second delay
+    return sum;
 }
 
-function placeOrder(totalPrice, noOfItem, cb) {
-    // Generate a unique order ID
-    const orderId = Math.floor(Math.random() * 1000000); // Random order ID
-    console.log(`Order ID: ${orderId}`);
-    console.log(`Total items: ${noOfItem}`);
-    console.log(`Total price: $${totalPrice}`);
 
-    // Simulate going to the payment gateway
-    setTimeout(() => {
-        const paymentSuccess = orderPayment(orderId, totalPrice, noOfItem);
-        cb(paymentSuccess); // Call the callback with payment success status
-    }, 1000); // 1 second delay
+Array.prototype.reduced = function(logic){
+    return (logic(this));
 }
 
-function orderPayment(orderId, totalPrice, noOfItem) {
-    // Simulate payment processing
-    console.log(`Processing payment for order ${orderId}. Please wait!`);
-    console.log(`Amount: $${totalPrice}`);
+console.log("prototype- ");
+const result = array1.reduced(arraySum);
+console.log(result);
 
-    // Simulate a successful payment
-    const paymentSuccessful = true; // In a real scenario, this would depend on payment gateway response
+const sumWithInitial = array1.reduce((accumulator,currentValue)=> accumulator + currentValue,intitialValue);
 
-    if (paymentSuccessful) {
-        console.log(`Payment successful for order ID ${orderId}`);
-        return true; // Indicate that the order was placed successfully
-    } else {
-        console.log(`Payment failed for order ID ${orderId}`);
-        return false; // Indicate that the order was not placed
-    }
-}
-
-function orderStatus(orderId, totalPrice, noOfItem) {
-    console.log(`Order ${orderId} is successful`);
-    console.log(`Total items: ${noOfItem}`);
-    console.log(`Total amount paid: $${totalPrice}`);
-}
-
-// Main flow
-createOrder((totalPrice, noOfItem) => {
-    placeOrder(totalPrice, noOfItem, (paymentSuccess) => {
-        if (paymentSuccess) {
-            orderStatus(Math.floor(Math.random() * 1000000), totalPrice, noOfItem); // Generate a new order ID for status
-        }
-    });
-});
+console.log(sumWithInitial);
