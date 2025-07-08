@@ -396,29 +396,137 @@ console.log("start script");
 
 // REDUCE IN JS
 
-console.log("reduce in js");
+// console.log("reduce in js");
 
-const array1 = [1,2,4,5,7,8];
+// const array1 = [1,2,4,5,7,8];
 
-const intitialValue = 0;
+// const intitialValue = 0;
 
-function arraySum(x){
-    let sum =0;
-    for(let i=0;i<x.length;i++){
-        sum+=x[i];
-    }
-    return sum;
-}
+// function arraySum(x){
+//     let sum =0;
+//     for(let i=0;i<x.length;i++){
+//         sum+=x[i];
+//     }
+//     return sum;
+// }
 
 
-Array.prototype.reduced = function(logic){
-    return (logic(this));
-}
+// Array.prototype.reduced = function(logic){
+//     return (logic(this));
+// }
 
-console.log("prototype- ");
-const result = array1.reduced(arraySum);
-console.log(result);
+// console.log("prototype- ");
+// const result = array1.reduced(arraySum);
+// console.log(result);
 
-const sumWithInitial = array1.reduce((accumulator,currentValue)=> accumulator + currentValue,intitialValue);
+// const sumWithInitial = array1.reduce((accumulator,currentValue)=> accumulator + currentValue,intitialValue);
 
-console.log(sumWithInitial);
+// console.log(sumWithInitial);
+
+
+// //sir's method 
+
+// // // reduce prototype
+// function sum1(acc,curr){
+    
+//     return acc+curr;
+// }
+
+
+// Array.prototype.reduceReplica=function(logic,initialValue){
+//         let result=initialValue;
+
+//         for(let i=0;i<this.length;i++){
+//             result=logic(result,this[i]);
+//         }
+//         return result;
+// }
+
+// const result2 =array1.reduceReplica((acc,curr)=>acc+curr,0); // here (acc, curr)=>acc+curr is the logic as a whole and 0 is initial value given;
+// console.log(result2);
+
+
+console.log("8th july - promises");
+
+// const myPromise = new Promise((resolve, reject) => {
+//     setTimeout(()=>{
+//         reject("foo foo trutles");
+//     },3000);
+// });
+
+// myPromise.then((res)=> console.log(res));
+// myPromise.catch((err)=> console.log(err));
+
+// console.log(myPromise);
+
+// function pranshPlacement(placementStep,delay){
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(() => {
+//             resolve("pransh got the placement" + placementStep);
+//             console.log(""+placementStep);
+//         }, delay);
+//     });
+// }
+
+// pranshPlacement("pransh got the placement",5000)
+// .then(()=> pranshPlacement("Party time",3000))
+// .then(()=> pranshPlacement("working",5000))
+// .then(()=> pranshPlacement("layed off",3000))
+// .catch((err)=> console.log(err));
+
+
+const myPromise = new Promise((resolve,reject )=>{
+    setTimeout(()=>{
+        reject("hola");
+    },2000)
+});
+
+
+const myPromise2 = new Promise((resolve,reject )=>{
+    setTimeout(()=>{
+        resolve("amigos");
+    },4000)
+});
+
+
+const myPromise3 = new Promise((resolve,reject )=>{
+    setTimeout(()=>{
+        resolve("xyc");
+    },6000)
+});
+
+
+const myPromise4 = new Promise((resolve,reject )=>{
+    setTimeout(()=>{
+        resolve("nevermind");
+    },8000)
+});
+
+
+const myPromise5 = new Promise((resolve,reject )=>{
+    setTimeout(()=>{
+        resolve("chal hatt");
+    },10000)
+});
+
+// Promise.all([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
+// .then((res)=>console.log(res))
+// .catch((rej)=>console.log(rej));
+
+
+
+// Promise.allSettled([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
+// .then((res)=>console.log(res))
+// .catch((rej)=>console.log(rej));
+
+
+// Promise.any([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
+// .then((res)=>console.log(res))
+// .catch((rej)=>console.log(rej));
+
+
+
+
+Promise.race([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
+.then((res)=>console.log(res))
+.catch((rej)=>console.log(rej));
