@@ -446,7 +446,7 @@ console.log("start script");
 // console.log(result2);
 
 
-console.log("8th july - promises");
+// console.log("8th july - promises");
 
 // const myPromise = new Promise((resolve, reject) => {
 //     setTimeout(()=>{
@@ -475,39 +475,39 @@ console.log("8th july - promises");
 // .catch((err)=> console.log(err));
 
 
-const myPromise = new Promise((resolve,reject )=>{
-    setTimeout(()=>{
-        reject("hola");
-    },2000)
-});
+// const myPromise = new Promise((resolve,reject )=>{
+//     setTimeout(()=>{
+//         reject("hola");
+//     },2000)
+// });
 
 
-const myPromise2 = new Promise((resolve,reject )=>{
-    setTimeout(()=>{
-        resolve("amigos");
-    },4000)
-});
+// const myPromise2 = new Promise((resolve,reject )=>{
+//     setTimeout(()=>{
+//         resolve("amigos");
+//     },4000)
+// });
 
 
-const myPromise3 = new Promise((resolve,reject )=>{
-    setTimeout(()=>{
-        resolve("xyc");
-    },6000)
-});
+// const myPromise3 = new Promise((resolve,reject )=>{
+//     setTimeout(()=>{
+//         resolve("xyc");
+//     },6000)
+// });
 
 
-const myPromise4 = new Promise((resolve,reject )=>{
-    setTimeout(()=>{
-        resolve("nevermind");
-    },8000)
-});
+// const myPromise4 = new Promise((resolve,reject )=>{
+//     setTimeout(()=>{
+//         resolve("nevermind");
+//     },8000)
+// });
 
 
-const myPromise5 = new Promise((resolve,reject )=>{
-    setTimeout(()=>{
-        resolve("chal hatt");
-    },10000)
-});
+// const myPromise5 = new Promise((resolve,reject )=>{
+//     setTimeout(()=>{
+//         resolve("chal hatt");
+//     },10000)
+// });
 
 // Promise.all([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
 // .then((res)=>console.log(res))
@@ -526,7 +526,43 @@ const myPromise5 = new Promise((resolve,reject )=>{
 
 
 
+// // 
+// Promise.race([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
+// .then((res)=>console.log(res))
+// .catch((rej)=>console.log(rej));
 
-Promise.race([myPromise,myPromise2,myPromise3,myPromise4,myPromise5])
-.then((res)=>console.log(res))
-.catch((rej)=>console.log(rej));
+
+// //july 16th
+// console.log("16th july");
+
+// console.log("17th july  - event emitter NOde JS");
+
+// const EventEmitter = require('node:events');
+
+// const eventEmitter = new EventEmitter();
+
+// eventEmitter.on('start',()=>{
+//     console.log("started");
+// })
+// eventEmitter.emit('start');
+
+// eventEmitter.on('start',(number)=>{
+//     console.log(`started ${number}`);
+// })
+
+// eventEmitter.emit("start",8);
+
+// eventEmitter.on('start', (start, end) => {
+//   console.log(`started from ${start} to ${end}`);
+// });
+
+// eventEmitter.emit('start', 1, 100);
+
+
+// eventEmitter.once('start', (start, end) => {
+//   console.log(`started from ${start} to ${end}`);
+// });
+
+// eventEmitter.emit('start', 1, 100);
+
+// at emit and on 'start' or any other name must be same 
